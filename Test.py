@@ -1,20 +1,13 @@
-import cv2
+from sklearn import tree
 import numpy as np
-import socket
-import time
-import multiprocessing
-import mutex
-#import sklearn
+import pandas as pd
 
-print "hello world"
-cap = cv2.VideoCapture(0)
-cap.set(3, 1280)
-cap.set(4, 720)
-cap.set(15, -3.0)
+# Change url to local location of data
+train_url = 'C:/Users/krazy_000/Downloads/Kaggle Digit Project/train.csv'
+test_url = 'C:/Users/krazy_000/Downloads/Kaggle Digit Project/test.csv'
 
-while (True):
-    ret, frame = cap.read()
-    cv2.imshow('Image Name', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-cap.release()
+#Load train and test data into dataframes
+train_df = pd.read_csv(train_url)
+test_df = pd.read_csv(test_url)
+
+
