@@ -23,7 +23,7 @@ clf.fit(X_train, y_train)
 
 # Make predictions on test data and put into a dataframe
 df = pd.DataFrame({"ImageId": range(1, test.shape[0]+1), 'Label': clf.predict(test)})
-
+df = df.round(0)
 df.to_csv("submission 1.csv", index=False)
 
 
