@@ -3,6 +3,8 @@ import numpy as np
 from sklearn import linear_model
 from sklearn import cross_validation
 from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn import svm
 
 # Change url to local location of data
 train_url = 'C:/Users/krazy_000/Downloads/Kaggle Digit Project/train.csv'
@@ -20,7 +22,7 @@ target = train.loc[:, 'label']
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(data, target, test_size=0.4, random_state=1)
 
 # Apply simple linear regression on training data
-clf = linear_model.LinearRegression()
+clf = svm.SVC(kernel='linear', C=1)
 clf.fit(X_train, y_train)
 
 df = pd.DataFrame({"Labels": target, 'Pred Labels': clf.predict(data)})
