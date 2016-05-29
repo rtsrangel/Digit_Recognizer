@@ -25,7 +25,7 @@ target = train.loc[:, 'label']
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(data, target, test_size=0.4, random_state=1)
 
 # Apply simple linear regression on training data
-clf = svm.SVC(kernel='poly', C=.01, degree=3)
+clf = svm.SVC(kernel='poly', C=.01)
 clf.fit(X_train, y_train)
 print clf.score(X_test, y_test)
 
